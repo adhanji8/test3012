@@ -1,5 +1,5 @@
 import express from "express";
-
+// Adding a comment
 const app = express();
 app.set("view engine", "ejs");
 
