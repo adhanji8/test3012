@@ -1,9 +1,8 @@
 import express from "express";
-import cors from "cors";
 import { createTodo, getTodos } from "./database.js";
 
 const app = express();
-app.use(cors());
+app.use(express.static("frontend"));
 
 app.use(express.static("public"));
 app.use(express.json());
