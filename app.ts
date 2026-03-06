@@ -1,10 +1,26 @@
 import express from "express";
-// Adding a comment
-const app = express();
-app.set("view engine", "ejs");
+import cors from "cors";
+import { createTodo, getTodos } from "./database.js";
 
-app.get("/", (req, res) => {
-  res.render("index");
+const app = express();
+app.use(cors());
+
+app.use(express.static("public"));
+app.use(express.json());
+
+app.get("/todos", (req, res) => {
+  const todos = getTodos();
+  res.json(todos);
+});
+
+app.post("/todos", async (req, res) => {
+  const { title } = req.body;
+  try {
+    await createTodo(title);
+    res.status(200).json({ error: null });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to insert in database" });
+  }
 });
 
 app.listen(8085, () => {

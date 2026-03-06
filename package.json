@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsx app.ts"
+    "start": "tsx watch app.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,8 +14,10 @@
     "@types/node": "^25.3.5"
   },
   "dependencies": {
+    "@types/cors": "^2.8.19",
     "@types/ejs": "^3.1.5",
     "@types/express": "^5.0.6",
+    "cors": "^2.8.6",
     "ejs": "^5.0.1",
     "express": "^5.2.1",
     "tsx": "^4.21.0",
